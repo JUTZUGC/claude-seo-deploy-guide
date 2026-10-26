@@ -1,0 +1,101 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "claudeseo",
+    "nameCn": "Claude SEO",
+    "repoName": "claude-seo-deploy-guide",
+    "oneLiner": "给 Claude Code 用的 SEO 审计插件（26 子技能 + 19 代理）",
+    "officialRepo": "https://github.com/AgriciDaniel/claude-seo",
+    "officialDocs": "https://github.com/AgriciDaniel/claude-seo#install",
+    "stars": "21.5k",
+    "license": "MIT",
+    "highlights": [
+      "覆盖面：技术 SEO、Core Web Vitals、E-E-A-T、Schema、GEO、本地 / 电商 / 国际",
+      "组成：26 个子技能 + 19 个专职 Agent，最多 17 个 Agent 并行",
+      "使用：在 Claude Code 里输入 `/seo` 查看命令，`/seo setup` 准备运行环境",
+      "安装：Skills CLI 可只装 seo 技能；完整插件用 `/plugin marketplace add AgriciDaniel/claude-seo`"
+    ],
+    "mcpSupport": "项目不是 MCP server，是 Claude Code 插件（含 SKILL.md 与 Agent 定义）。本仓库的 MCP 只提供安装步骤、客户端差异与常见坑。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-26",
+    "verification": [
+      [
+        "全局安装 seo 技能到 Trae（隔离 HOME 下执行）",
+        "已验证 2026-10-26"
+      ],
+      [
+        "完整插件（19 个 Agent + /seo 命令）未实测",
+        "已核对 2026-10-26"
+      ],
+      [
+        "MCP 服务握手与工具列表（initialize / tools/list）",
+        "已验证 2026-10-26"
+      ],
+      [
+        "非目标宿主调用被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-10-26"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "node"
+      ],
+      "steps": [
+        "npx -y skills@latest add https://github.com/AgriciDaniel/claude-seo --skill seo -g -a trae trae-cn -y --copy",
+        "npx -y skills@latest list -g"
+      ],
+      "stepsPs": [
+        "npx -y skills@latest add https://github.com/AgriciDaniel/claude-seo --skill seo -g -a trae trae-cn -y --copy",
+        "npx -y skills@latest list -g"
+      ],
+      "source": "https://github.com/AgriciDaniel/claude-seo#install"
+    },
+    "pitfalls": [
+      "装完看不到技能：Skills CLI 默认装到 Trae / Trae CN，换客户端要改 `-a`",
+      "`-g` 不带 `-a` 会装到所有客户端，遇到不支持全局安装的会整条失败",
+      "想用 `/seo` 命令必须先装完整插件，技能版没有斜杠命令",
+      "`/seo setup` 失败：多为 Python 或浏览器下载问题，跑 `/seo doctor` 看具体项",
+      "审计需要抓取网站：内网或需要登录的站点可能抓不到",
+      "报告只是建议，改动前先备份，按影响大小分批上线"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/claude-seo-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/claude-seo-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "Claude SEO 安装",
+    "SEO 审计 AI",
+    "Claude Code SEO",
+    "网站 SEO 检查",
+    "SEO 插件",
+    "AI 搜索优化 GEO",
+    "Schema 检查",
+    "SEO 报告 自动生成",
+    "Claude SEO 中文",
+    "claude seo deploy guide"
+  ],
+  "topics": [
+    "seo",
+    "claude-code",
+    "ai-agents",
+    "technical-seo",
+    "marketing",
+    "plugin"
+  ]
+}
